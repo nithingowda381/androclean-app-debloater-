@@ -21,7 +21,7 @@ export function Sidebar({ currentView, onViewChange }: SidebarProps) {
         <aside className="w-64 bg-[var(--color-brand-surface)] border-r border-[var(--color-brand-border)] flex flex-col h-screen fixed left-0 top-0 z-40">
             <div className="p-6 border-b border-[var(--color-brand-border)]">
                 <h1 className="text-xl font-bold flex items-center gap-3 text-[var(--color-brand-secondary)]">
-                    <img src="/logo.webp" alt="AndroClean Logo" className="w-8 h-8 object-contain rounded-md" />
+                    <img src="/logo.jpg" alt="AndroClean Logo" className="w-8 h-8 object-contain rounded-md" />
                     <span>AndroClean</span>
                 </h1>
             </div>

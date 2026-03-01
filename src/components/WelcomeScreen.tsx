@@ -15,7 +15,7 @@ export function WelcomeScreen({ onConnect, connecting, error }: WelcomeScreenPro
                 {/* Header Section */}
                 <div className="text-center mb-16 px-4">
                     <div className="inline-flex items-center justify-center mb-6">
-                        <img src="/logo.webp" alt="AndroClean Logo" className="w-24 h-24 object-contain rounded-2xl shadow-sm bg-white p-2" />
+                        <img src="/logo.jpg" alt="AndroClean Logo" className="w-24 h-24 object-contain rounded-2xl shadow-sm bg-white p-2" />
                     </div>
                     <h1 className="text-4xl md:text-5xl font-black mb-4 text-[#111827] tracking-tight">
                         AndroClean
@@ -134,8 +134,8 @@ export function WelcomeScreen({ onConnect, connecting, error }: WelcomeScreenPro
             <footer className="mt-16 w-full max-w-4xl border-t border-gray-200 pt-6 pb-6 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
                 <p>Version 3.0.0 WebUSB Edition</p>
                 <div className="flex gap-4">
-                    <a href="#" className="hover:text-gray-900 transition-colors">Documentation</a>
-                    <a href="#" className="hover:text-gray-900 transition-colors">GitHub</a>
+                    <a href="https://github.com/nithingowda381/androclean-app-debloater-.git" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">Documentation</a>
+                    <a href="https://github.com/nithingowda381/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">GitHub</a>
                 </div>
             </footer>
         </div>
