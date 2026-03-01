@@ -1,6 +1,6 @@
-import { LayoutDashboard, PackageSearch, Star, Save, ClipboardList, Settings, LifeBuoy } from 'lucide-react';
+import { LayoutDashboard, PackageSearch, Star, Save, ClipboardList, LifeBuoy } from 'lucide-react';
 
-export type ViewState = 'dashboard' | 'packages' | 'recommended' | 'backup' | 'logs' | 'settings' | 'help';
+export type ViewState = 'dashboard' | 'packages' | 'recommended' | 'backup' | 'logs' | 'help';
 
 interface SidebarProps {
     currentView: ViewState;
@@ -14,7 +14,6 @@ export function Sidebar({ currentView, onViewChange }: SidebarProps) {
         { id: 'recommended', label: 'Recommended Debloat', icon: Star },
         { id: 'backup', label: 'Backup & Restore', icon: Save },
         { id: 'logs', label: 'Logs & Monitor', icon: ClipboardList },
-        { id: 'settings', label: 'Settings', icon: Settings },
     ] as const;
 
     return (

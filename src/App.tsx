@@ -3,7 +3,7 @@ import { WelcomeScreen } from './components/WelcomeScreen';
 import { MainLayout } from './layouts/MainLayout';
 import type { ViewState } from './layouts/Sidebar';
 import { PackageExplorerView } from './views/PackageExplorerView';
-import { DashboardView, RecommendedView, BackupRestoreView, LogsView, SettingsView } from './views/VariousViews';
+import { DashboardView, RecommendedView, BackupRestoreView, LogsView } from './views/VariousViews';
 import { HelpDocsView } from './views/HelpDocsView';
 
 function App() {
@@ -21,8 +21,6 @@ function App() {
         return <BackupRestoreView />;
       case 'logs':
         return <LogsView />;
-      case 'settings':
-        return <SettingsView />;
       case 'help':
         return <HelpDocsView />;
       default:

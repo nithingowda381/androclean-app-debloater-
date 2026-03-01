@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { adbManager, eventBus } from '../lib/adb';
-import { useTheme } from '../hooks/useTheme';
 import type { ViewState } from '../layouts/Sidebar';
 import { getBloatwareInfo } from '../lib/bloatware';
 
@@ -360,43 +359,10 @@ export function LogsView() {
 }
 
 export function SettingsView() {
-    const { isDark, toggleTheme } = useTheme();
-
     return (
         <div className="space-y-6 max-w-3xl">
             <h2 className="text-2xl font-bold text-[var(--color-brand-secondary)]">Application Settings</h2>
-
-            <div className="surface-panel divide-y divide-[var(--color-brand-border)]">
-                <div className="p-6 flex justify-between items-center">
-                    <div>
-                        <h3 className="font-bold text-[var(--color-brand-secondary)]">ADB Path</h3>
-                        <p className="text-sm text-[var(--color-brand-muted)]">Using built-in WebADB implementation targeting WebUSB.</p>
-                    </div>
-                    <span className="text-xs bg-[var(--color-brand-background)] text-[var(--color-brand-muted)] px-2 py-1 rounded border border-[var(--color-brand-border)]">browser-native</span>
-                </div>
-
-                <div className="p-6 flex justify-between items-center">
-                    <div>
-                        <h3 className="font-bold text-[var(--color-brand-secondary)]">Safety Mode (Package Protection)</h3>
-                        <p className="text-sm text-[var(--color-brand-muted)]">Prevent uninstallation of critical boot-loop inducing packages.</p>
-                    </div>
-                    <label className="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" className="sr-only peer" defaultChecked />
-                        <div className="w-11 h-6 bg-[var(--color-brand-muted)] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[var(--color-brand-success)]"></div>
-                    </label>
-                </div>
-
-                <div className="p-6 flex justify-between items-center">
-                    <div>
-                        <h3 className="font-bold text-[var(--color-brand-secondary)]">Dark Theme</h3>
-                        <p className="text-sm text-[var(--color-brand-muted)]">Switch the application interface to dark mode.</p>
-                    </div>
-                    <label className="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" className="sr-only peer" checked={isDark} onChange={toggleTheme} />
-                        <div className="w-11 h-6 bg-[var(--color-brand-muted)] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[var(--color-brand-primary)]"></div>
-                    </label>
-                </div>
-            </div>
+            <p className="text-sm text-[var(--color-brand-muted)]">No configurable options available.</p>
         </div>
     );
 }
