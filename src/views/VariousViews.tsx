@@ -183,6 +183,24 @@ export function RecommendedView() {
         }
     };
 
+    const applyOnePlusProfile = async () => {
+        try {
+            const installedRaw = await adbManager.shell('pm list packages');
+            const installedSet = new Set(
+                installedRaw
+                    .split('\n')
+                    .map(line => line.trim().replace(/^package:/, ''))
+                    .filter(Boolean)
+            );
+
+            const filteredPackages = onePlusPackages.filter(pkg => installedSet.has(pkg));
+            await applyProfile('OnePlus', filteredPackages);
+        } catch (err) {
+            console.error('Failed to scan installed OnePlus packages:', err);
+            setResult({ profile: 'OnePlus', success: 0, fail: 0 });
+        }
+    };
+
     const samsungPackages = [
         'com.samsung.android.bixby.agent', 'com.samsung.android.bixby.wakeup',
         'com.samsung.android.app.spage', 'com.samsung.android.game.gamehome',
@@ -352,8 +370,103 @@ export function RecommendedView() {
     ];
 
     const onePlusPackages = [
-        'com.oneplus.store', 'com.oneplus.membership',
-        'net.oneplus.weather', 'com.heytap.usercenter'
+        'android.autoinstalls.config.oneplus',
+        'com.android.bluetoothmidiservice',
+        'com.android.calllogbackup',
+        'com.android.cellbroadcastreceiver.overlay.common',
+        'com.android.DeviceAsWebcam',
+        'com.android.egg',
+        'com.android.email.partnerprovider',
+        'com.android.hotwordenrollment.okgoogle',
+        'com.android.hotwordenrollment.xgoogle',
+        'com.android.microdroid.empty_payload',
+        'com.android.providers.partnerbookmarks',
+        'com.android.role.notes.enabled',
+        'com.android.systemui.accessibility.accessibilitymenu',
+        'com.android.systemui.overlay.common',
+        'com.android.systemui.overlay.fingerprint.anim.ccyh',
+        'com.android.systemui.overlay.fingerprint.anim.jslz',
+        'com.android.systemui.overlay.fingerprint.anim.xklc',
+        'com.android.theme.font.notoserifsource',
+        'com.android.traceur',
+        'com.android.virtualmachine.res',
+        'com.coloros.accessibilityassistant',
+        'com.coloros.assistantscreen',
+        'com.coloros.childrenspace',
+        'com.coloros.floatassistant',
+        'com.coloros.healthcheck',
+        'com.coloros.ocs.opencapabilityservice',
+        'com.coloros.operationManual',
+        'com.coloros.scenemode',
+        'com.coloros.smartsidebar',
+        'com.google.ambient.streaming',
+        'com.google.android.accessibility.switchaccess',
+        'com.google.android.adservices.api',
+        'com.google.android.apps.nbu.files',
+        'com.google.android.apps.restore',
+        'com.google.android.apps.tachyon',
+        'com.google.android.feedback',
+        'com.google.android.gm',
+        'com.google.android.gms.location.history',
+        'com.google.android.gms.supervision',
+        'com.google.android.marvin.talkback',
+        'com.google.android.odad',
+        'com.google.android.ondevicepersonalization.services',
+        'com.google.android.onetimeinitializer',
+        'com.google.android.overlay.modules.captiveportallogin.forframework',
+        'com.google.android.overlay.modules.documentsui',
+        'com.google.android.overlay.modules.permissioncontroller',
+        'com.google.mainline.adservices',
+        'com.heytap.colorfulengine',
+        'com.heytap.mcs',
+        'com.microsoft.appmanager',
+        'com.microsoft.deviceintegrationservice',
+        'com.microsoftsdk.crossdeviceservicebroker',
+        'com.oneplus.membership',
+        'com.oplus.android.overlay.gmsconfig.common',
+        'com.oplus.audio.effectcenter',
+        'com.oplus.bttestmode',
+        'com.oplus.crashbox',
+        'com.oplus.customize.coreapp',
+        'com.oplus.dmp',
+        'com.oplus.eid',
+        'com.oplus.encryption',
+        'com.oplus.engineercamera',
+        'com.oplus.engineermode',
+        'com.oplus.engineernetwork',
+        'com.oplus.healthservice',
+        'com.oplus.lfeh',
+        'com.oplus.linker',
+        'com.oplus.location',
+        'com.oplus.locationproxy',
+        'com.oplus.logkit',
+        'com.oplus.metis',
+        'com.oplus.obrain',
+        'com.oplus.olc',
+        'com.oplus.onetrace',
+        'com.oplus.postmanservice',
+        'com.oplus.qualityprotect',
+        'com.oplus.sauhelper',
+        'com.oplus.securitykeyboard',
+        'com.oplus.statistics.rom',
+        'com.oplus.stdsp',
+        'com.oplus.wifibackuprestore',
+        'com.oppo.quicksearchbox',
+        'com.qti.dcf',
+        'com.qti.qcc',
+        'com.qualcomm.atfwd',
+        'com.qualcomm.atfwd2',
+        'com.qualcomm.location',
+        'com.qualcomm.qti.devicestatisticsservice',
+        'com.qualcomm.qti.ims',
+        'com.qualcomm.qti.qms.service.trustzoneaccess',
+        'com.qualcomm.qti.remoteSimlockAuth',
+        'com.qualcomm.qti.uim',
+        'com.qualcomm.qti.uimGbaApp',
+        'com.qualcomm.qti.xrvd.service',
+        'com.qualcomm.uimremoteclient',
+        'com.qualcomm.uimremoteserver',
+        'com.wapi.wapicertmanage'
     ];
 
     const realmePackages = [
@@ -445,7 +558,7 @@ export function RecommendedView() {
                     </div>
                     <p className="text-sm text-[var(--color-brand-muted)] mb-6">Removes OnePlus store/membership and selected optional service packages.</p>
                     <button
-                        onClick={() => applyProfile('OnePlus', onePlusPackages)}
+                        onClick={applyOnePlusProfile}
                         disabled={applying !== null}
                         className="btn-primary w-full flex justify-center items-center gap-2"
                     >
