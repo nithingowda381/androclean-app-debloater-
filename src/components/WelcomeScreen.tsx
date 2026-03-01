@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Usb, ShieldCheck, AlertCircle, Info, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Usb, ShieldCheck, AlertCircle, Info, CheckCircle2 } from 'lucide-react';
 
 interface WelcomeScreenProps {
     onConnect: () => void;

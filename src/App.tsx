@@ -9,10 +9,10 @@ import { HelpDocsView } from './views/HelpDocsView';
 function App() {
   const { isConnected, connect, disconnect, connecting, error } = useAdb();
 
-  const renderView = (view: ViewState, onViewChange: (v: ViewState) => void) => {
+  const renderView = (view: ViewState) => {
     switch (view) {
       case 'dashboard':
-        return <DashboardView onViewChange={onViewChange} />;
+        return <DashboardView />;
       case 'packages':
         return <PackageExplorerView />;
       case 'recommended':
@@ -38,7 +38,7 @@ function App() {
         />
       ) : (
         <MainLayout onDisconnect={disconnect}>
-          {(currentView, setCurrentView) => renderView(currentView, setCurrentView)}
+          {(currentView) => renderView(currentView)}
         </MainLayout>
       )}
     </div>

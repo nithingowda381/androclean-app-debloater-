@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { adbManager, eventBus } from '../lib/adb';
-import type { ViewState } from '../layouts/Sidebar';
 import { getBloatwareInfo } from '../lib/bloatware';
 
-export function DashboardView({ onViewChange }: { onViewChange: (view: ViewState) => void }) {
+export function DashboardView() {
     const [stats, setStats] = useState({
         androidVersion: '...',
         totalApps: '...',
