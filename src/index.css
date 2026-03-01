@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-background: var(--brand-background);
+  --color-brand-surface: var(--brand-surface);
+  --color-brand-danger: var(--brand-danger);
+  --color-brand-success: var(--brand-success);
+  --color-brand-border: var(--brand-border);
+  --color-brand-muted: var(--brand-muted);
+}
+
+:root {
+  --brand-primary: #2F80ED;
+  --brand-secondary: #1F2937;
+  --brand-background: #F9FAFB;
+  --brand-surface: #FFFFFF;
+  --brand-danger: #EF4444;
+  --brand-success: #10B981;
+  --brand-border: #E5E7EB;
+  --brand-muted: #6B7280;
+}
+
+.dark {
+  --brand-primary: #3B82F6;
+  --brand-secondary: #F3F4F6;
+  --brand-background: #0B0F19;
+  --brand-surface: #1F2937;
+  --brand-danger: #F87171;
+  --brand-success: #34D399;
+  --brand-border: #374151;
+  --brand-muted: #9CA3AF;
+}
+
+body {
+  background-color: var(--color-brand-background);
+  color: var(--color-brand-secondary);
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Surface Cards for Dashboard */
+.surface-panel {
+  background: var(--color-brand-surface);
+  border: 1px solid var(--color-brand-border);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #D1D5DB;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #9CA3AF;
+}
+
+/* Core Buttons */
+.btn-primary {
+  @apply bg-[#2F80ED] hover:bg-[#2563EB] text-white font-medium py-2 px-4 rounded-lg transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-danger {
+  @apply bg-[#EF4444] hover:bg-[#DC2626] text-white font-medium py-2 px-4 rounded-lg transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply bg-white border border-[#E5E7EB] text-[#1F2937] hover:bg-[#F3F4F6] font-medium py-2 px-4 rounded-lg transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-ghost {
+  @apply text-[#6B7280] hover:text-[#1F2937] hover:bg-[#F3F4F6] font-medium py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+}
